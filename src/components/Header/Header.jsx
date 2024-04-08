@@ -1,7 +1,7 @@
 import React, {useRef} from 'react'
 import { Container , Row, Col} from 'reactstrap';
 import { Link, NavLink } from 'react-router-dom';
-import heroImg01 from "../../assets/all-images/cars-img/logo.jpeg";
+import heroImg01 from "../../assets/all-images/cars-img/logo.jpg";
 //import heroImg from '../../assets'
 
 import '../../styles/header.css';

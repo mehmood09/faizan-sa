@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabaseClient';
 import '../../styles/booking-form.css';
+import {toast} from 'react-toastify';
+import HashLoader from 'react-spinners/HashLoader';
+
 
 const BookingForm = () => {
 
     const [error, setError] = useState(null)
     const [booking, setBooking] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState({
         fullName: '', depName: '', cnic: '', address: '', pickdate: '', vehName: '', modelName: '', locName: '', returndate: ''
     })
 
     console.log(formData)
+
+    const navigate = useNavigate()
 
     function handleChange(event) {
         setFormData((prevFormData) => {
@@ -24,6 +30,8 @@ const BookingForm = () => {
     }
 
     async function addBooking() {
+        setLoading(true)
+
         try {
 
             const res = await supabase
@@ -48,10 +56,15 @@ const BookingForm = () => {
 
             if (res.data) {
                 setFormData((currentBooking) => [...currentBooking, res.data]);
-                alert('Data Save Success.');
+                setLoading(false)
+                //alert('Data Save Success.');
+                toast.success("Date Saved Success")
+                navigate('/home')
             }
         } catch (error) {
-            alert(error.message);
+            //alert(error.message);
+            toast.error(error.message);
+            setLoading(false);
         }
     }
 
@@ -115,7 +128,15 @@ const BookingForm = () => {
 
                             <input type="date" id="returndate" name="returndate" onChange={handleChange} className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                         </div>
-                        <button type='submit' className="booking__form submit__btn ms-1" onClick={() => addBooking()}>Book Now</button>
+                        <button disabled={loading && true}
+                        type='submit' className="booking__form submit__btn ms-1" onClick={() => addBooking()}>
+                            { 
+                            loading ? ( 
+                                <HashLoader size={25} color='#ffffff'/>
+                             ) : (
+                                'Book Now'
+                            )}
+                            </button>
 
 
                     </div>

@@ -15,7 +15,7 @@ const BookingView = () => {
             const { data, error } = await supabase
             .from('booking')
             .select('*')
-            .limit(10);
+            .limit(1000);
 
             if (error) throw error;
 
