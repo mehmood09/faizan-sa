@@ -20,10 +20,14 @@ import '../../styles/header.css';
       path:'/create-booking',
       display: 'Add Booking'
     },
-    {
+    { /**
+  
+      {
       path:'/booking-list',
       display: 'Booking List'
     },
+  
+  */}
     
     
   ]
@@ -60,6 +64,14 @@ import '../../styles/header.css';
                 </span>
               </div>
               */}
+              <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
+                <Link to='/login' className='d-flex align-items-center gap-1'>
+                  <i className='ri-login-circle-line'> Login</i>
+                </Link>
+                <Link to='/register' className='d-flex align-items-center gap-1'>
+                  <i className='ri-user-line'>Register</i>
+                </Link>
+              </div>
             </Col>
           </Row>
         </Container>

@@ -1,9 +1,10 @@
 import React from 'react'
-//import '../../styles/booking-form.css';
 import { Form, FormGroup } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import RegisterForm from '../components/UI/RegisterForm';
+//import RegisterForm from '../components/UI/RegisterForm';
+import RegisterForm from '../pages/RegisterForm';
+import '../styles/register-form.css';
 
 const Signup = () => {
     const submitHandler = event => {

@@ -1,3 +1,13 @@
+.delete-btn {
+  background: #e10d05;
+  color: #fff;
+  padding: 8px 15px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+}
+
 .table-wrapper {
     max-width: 100%;
   }
@@ -14,11 +24,13 @@
     max-width: 100%;
     margin: auto;
     overflow-x: auto;
+    border: 1px;
   }
 
   .table thead {
     background: #42a;
     color: #fff;
+    border-radius: 5px;
   }
 
   .table th,
@@ -31,6 +43,7 @@
     border-top: 0.5px solid #ddd;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 1500px;
   }
 
   .table tbody tr:hover {
@@ -68,10 +81,7 @@
     cursor: pointer;
   }
 
-  .delete-btn {
-    color: #e10d05;
-  }
-
+  
   .update-btn {
     color: #42a;
   }
